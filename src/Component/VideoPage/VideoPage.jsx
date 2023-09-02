@@ -6,11 +6,20 @@ import axios from 'axios';
 import { CardComment } from './CardComment';
 import Sidebar from '../Sidebar/Sidebar';
 import {BiSolidDownArrow} from 'react-icons/bi'
+import {GrClose} from 'react-icons/gr'
 
 
 export const VideoPage = () => {
   const [comment,setComment] = useState('')
+  const [active,setActive] = useState(true)
   const {stateId} = useContext(HeaderContext)
+
+  const navtoggle = () => {
+    setActive(!active)
+  }
+  // const handleClose = () => {
+  //    setActive(true)
+  // }
   const {id} = useParams()
     const mapId = stateId.find(user => user.videoId ==id)
 
@@ -72,16 +81,21 @@ export const VideoPage = () => {
   <div className="comment">
   {comment}
   </div>
-  <div className="firkla">
+  <div onClick={navtoggle}  className="firkla">
    <div className="fikrlar-text">
    <h4>Comments</h4>
     <span className='card-span'>100</span>
    </div>
  <div className="fikrlar-menu">
  {comment.slice(0,1)}
+ <div className={active  ? 'comment-none' : ' comment-none nav__active'}>
+  <GrClose  onClick={() => setActive(true)} className='close'/>
+  <div className="comment-scrol">
+  {comment}
+  </div>
+ </div>
     <BiSolidDownArrow/>
  </div>
-    
   </div>
    <div className="data-menu">
    {data.slice(10.70)}

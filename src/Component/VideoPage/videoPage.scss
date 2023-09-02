@@ -86,3 +86,42 @@
         font-size: 24px;
     }
 }
+.comment-none {
+    display: none;
+    @include for-phone{
+        display: block;
+        position: fixed;
+        right: 0;
+        left: 0;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+
+        bottom: 0;
+        width: 100%;
+        height: 50vh;
+        background-color:white;
+        z-index: 1;
+        transform: translateY(100%);
+        transition: 0.5s ease-in;
+        padding: 10px 10px;
+    }
+}
+.nav__active{
+    transform: translateY(0);
+}
+.close{
+    position: fixed;
+    position: absolute;
+    right: 0;
+    padding-top: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.nav__active2{
+    transform: translateY(100%);
+}
+.comment-scrol{
+    overflow: scroll;
+    height: 50vh;
+}

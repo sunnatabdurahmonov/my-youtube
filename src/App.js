@@ -24,7 +24,8 @@ import { Liked } from "./Component/liked";
 import { Music } from "./Component/music";
 import { Games } from "./Component/games";
 import { ErrorPage } from "./Component/errorPage";
-import { Login } from "./Component/Login";
+// import {Auth} from './Component/auth/auth'
+
 
 
 
@@ -33,8 +34,8 @@ function App() {
   return (
    <Layout>
     <Routes>
-      <Route path='/' element={<Login/>}/>
-      {/* <Route path="/" element={<Home/>}/>
+      {/* <Route path='/' element={<Auth/>}/> */}
+      <Route path="/" element={<Home/>}/>
       <Route path='/videoPage/:id' element={<VideoPage/>}/>
       <Route path="/trending" element={<Trending/>}/>
       <Route path='/subscriptions' element={<Subscriptions/>}/>
@@ -61,7 +62,7 @@ function App() {
         <Route index element={<EmmaHome/>}/>
         <Route path='/emma/video4' element={<Video4/>}/>
       </Route>
-      <Route path='*' element={<ErrorPage/>}/> */}
+      <Route path='*' element={<ErrorPage/>}/>
     </Routes>
    </Layout>
   );
