@@ -1,0 +1,55 @@
+ @import '../mixin.scss';
+ .subscription1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+.data-all{
+    display: grid;
+    grid-template-columns: 220px 220px 220px 220px 220px;
+    column-gap: 10px;
+    flex-wrap: wrap;
+    @include  for-tablet-3{
+        display: grid;
+        grid-template-columns: 220px 220px 220px;
+    }
+    @include for-tablet-6{
+        display: grid;
+        grid-template-columns: 220px 220px;
+
+    }
+    @include for-phone{
+        display: grid;
+        grid-template-columns: 225px;
+        transform: translateX(10%);
+    }
+    @include for-phone-2{
+        transform: translateX(-2%);
+    }
+}
+.data-all-2{
+    display: grid;
+    grid-template-columns: 220px 220px 220px 220px 220px 220px;
+    column-gap: 10px;
+    flex-wrap: wrap;
+    @include  for-tablet-3{
+        display: grid;
+        grid-template-columns: 220px 220px 220px;
+    }
+    @include for-tablet-6{
+        display: grid;
+        grid-template-columns: 220px 220px;
+
+    }
+    @include for-phone{
+        display: grid;
+        grid-template-columns: 225px;
+        transform: translateX(10%);
+    }
+    @include for-phone-2{
+        transform: translateX(-2%);
+    }
+
+}

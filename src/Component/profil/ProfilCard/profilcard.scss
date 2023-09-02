@@ -1,0 +1,15 @@
+@import '../../mixin.scss';
+.profil-card-menu{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.profil-card-list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.profil-card-img>img{
+    width: 80px;
+    height: 80px;
+}

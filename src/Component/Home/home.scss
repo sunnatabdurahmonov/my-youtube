@@ -1,0 +1,46 @@
+@import '../mixin.scss';
+
+.home-sidebar{
+    display: flex;
+    justify-content: space-between;
+}
+.dollieBlair{
+    @include for-phone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transform: translateX(10%);
+    }
+    @include for-phone-3{
+        transform: translateX(10%);
+    }
+    @include for-phone-2{
+        transform: none;
+    }
+}
+.Dolli-img-menu{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.dollie-img{
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.dolli-text{
+    color: #19202C;
+    font-size: 26px;
+    font-weight: 700;
+}
+.dolli-text-2{
+    color: white;
+    font-size: 26px;
+    font-weight: 700
+}
+.card-menu-list{
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

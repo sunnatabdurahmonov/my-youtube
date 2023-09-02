@@ -1,0 +1,1 @@
+export { Swiper4 } from './Swiper4'

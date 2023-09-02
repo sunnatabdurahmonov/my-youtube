@@ -1,0 +1,88 @@
+@import '../mixin.scss';
+.iframe-list{
+    max-width: 100%;
+    width: 100%;
+}
+.iframe-menu{
+    max-width: 100%;
+    width: 100%;
+    // margin-top: 20px;
+}
+.iframe{
+    max-width: 100%;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include for-phone{
+        height: 200px;
+    }
+}
+.data-menu-list{
+    display: flex;
+    position: relative;
+}
+.data-menu{
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+    @include for-tablet-5{
+       margin-top: 200px;
+       transform: translateX(-40%);
+    }
+    @include for-phone{
+       transform: none;
+       transform: translateX(-30%);
+    }
+    @include for-phone-3{
+        transform: translateX(-10%);
+    }
+    @include for-phone-2{
+        transform: none;
+    }
+}
+.comment{
+    padding-left: 20px;
+    position: relative;
+    @include for-tablet-5{
+        display: none;
+    }
+}
+.firkla{
+    display: none;
+ @include for-phone{
+    display: block;
+    max-width: 480px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: #edecec;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+ }
+}
+.fikrlar-text{
+    @include for-phone{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+    }
+
+}
+.fikrlar-menu{
+    @include for-phone{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.video-title{
+    font-size: 36px;
+    max-width: 700px;
+    padding-top: 10px;
+    @include for-phone{
+        font-size: 24px;
+    }
+}

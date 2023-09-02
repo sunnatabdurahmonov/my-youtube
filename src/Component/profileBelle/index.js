@@ -1,0 +1,1 @@
+export {ProfileBelle} from './ProfileBelle'

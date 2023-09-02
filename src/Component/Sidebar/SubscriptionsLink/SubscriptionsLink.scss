@@ -1,0 +1,13 @@
+@import '../../mixin.scss';
+// .Subscriptions-menu{
+//     @include for-tablet {
+//         display: none;
+//     }
+// }
+.navlink2{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: #898989;
+}

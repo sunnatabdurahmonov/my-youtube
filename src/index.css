@@ -1,13 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Mulish:wght@400;700&display=swap');
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  font-family: 'Mulish', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header__light {
+  background-color: #ffffff;
+  color: black !important;
+}
+
+.header__dark {
+  background-color: #1c1c20 !important;
+  color: #ffffff !important;
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 25px 20px;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.loading {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+
+}
+
+.loader,
+.loader:before {
+  display: inline-block;
+  border: 20px double transparent;
+  border-top-color: black;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.loader {
+  padding: 8px;
+  animation: wifiLoading 1s ease-in infinite;
+}
+
+.loader:before {
+  content: '';
+  width: 0;
+  height: 0;
+}
+
+@keyframes wifiLoading {
+  0% {
+    border-style: none
+  }
+
+  100% {
+    border-style: double
+  }
 }

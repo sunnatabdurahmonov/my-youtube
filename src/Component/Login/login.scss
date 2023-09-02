@@ -1,0 +1,20 @@
+.login{
+    text-align: center;
+   transform: translateY(50%);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form>input{
+    width: 450px;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #536471;
+    margin-top: 20px;
+}
+.btn1{
+    padding-top: 20px;
+}
+
