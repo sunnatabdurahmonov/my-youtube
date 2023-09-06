@@ -39,7 +39,7 @@ export const Header = () => {
         </li>
         <li>
            {user ? <p className='logout' onClick={handleSignOut}>Log Out</p> 
-          : <Link className='login-link' to='/login'>Login</Link> 
+          : <Link className={theme == false ? 'login-link' : 'login-link2'} to='/login'>Login</Link> 
           }
         </li>
        </ul>
