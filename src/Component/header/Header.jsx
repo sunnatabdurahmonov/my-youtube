@@ -1,20 +1,22 @@
 import React, { useContext } from 'react'
 import './header.scss'
 import App from './search/Search'
-import camera from '../../assest/camera.svg'
-import menu1 from '../../assest/menu11.svg'
-import qungiroq from '../../assest/qungiroq.svg'
-import {FaUserCircle} from 'react-icons/fa'
 import youtube from '../../assest/you tube icon.svg'
 import { HeaderContext } from '../Context/Context'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import { MdDarkMode } from 'react-icons/md'
-import { NavLink } from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import { auth } from '../../config/firebase'
 
 
 export const Header = () => {
+  const {user} = useContext(HeaderContext)
   const {state,setState} = useContext(HeaderContext)
   const {theme,setTheme} = useContext(HeaderContext)
+
+  const handleSignOut = async () => {
+    await auth.signOut()
+  }
 
   const darknot = () => {
     setTheme(!theme)
@@ -23,10 +25,10 @@ export const Header = () => {
      <div className={`header ${theme === false ? 'header__light' : 'header__dark'}`}>
           <div className="sidebar-menu-img">
             <GiHamburgerMenu className={theme === false ? 'icon-menu' : 'icon-menu2'}  onClick={() => setState(!state)}/>
-        <NavLink to='/' className={theme === false ? 'youtube' : 'youtube2'} >
+        <h3 className={theme === false ? 'youtube' : 'youtube2'} >
           <img src={youtube} alt="logo" />
           <h1 className='youtube-title'>YouTube</h1>
-        </NavLink>
+        </h3>
       </div>
     <div className="search-list">
     <App/>
@@ -36,7 +38,9 @@ export const Header = () => {
           <MdDarkMode className='dark' onClick={darknot}/>
         </li>
         <li>
-            <FaUserCircle className='user'/>
+           {user ? <p className='logout' onClick={handleSignOut}>Log Out</p> 
+          : <Link className='login-link' to='/login'>Login</Link> 
+          }
         </li>
        </ul>
     </div>

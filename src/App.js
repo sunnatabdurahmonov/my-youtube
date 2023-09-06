@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,Navigate } from "react-router-dom";
 import { Layout } from "./Component/Layout";
 import { Home } from "./Component/Home";
 import { Trending } from "./Component/Trending";
@@ -24,19 +24,36 @@ import { Liked } from "./Component/liked";
 import { Music } from "./Component/music";
 import { Games } from "./Component/games";
 import { ErrorPage } from "./Component/errorPage";
-// import {Auth} from './Component/auth/auth'
-
-
-
-
+import {Register} from "./Component/auth/Register";
+import { Login } from "./Component/Login";
+import { useContext, useEffect } from "react";
+import { auth } from "./config/firebase";
+import { HeaderContext } from "./Component/Context/Context";
 
 function App() {
+  const {user,setUser} = useContext(HeaderContext)
+
+  useEffect(() => {
+    
+    const userPage = auth.onAuthStateChanged((user) => {
+      if(user) {
+        setUser(user)
+      }
+      else{
+        setUser(null)
+      }
+    })
+    return userPage
+  },[setUser])
+
   return (
+
    <Layout>
     <Routes>
-      {/* <Route path='/' element={<Auth/>}/> */}
-      <Route path="/" element={<Home/>}/>
-      <Route path='/videoPage/:id' element={<VideoPage/>}/>
+     <Route path="/" element={<Home user={user}/>}/>
+     <Route path="/register" element={user ? <Navigate to='/'/> : <Register/>}/>
+     <Route path="/login" element={user ? <Navigate to='/'/> : <Login/>}/>
+      <Route path='/videoPage/:id' element={!user ?<Navigate to='/login'/> : <VideoPage/>}/>
       <Route path="/trending" element={<Trending/>}/>
       <Route path='/subscriptions' element={<Subscriptions/>}/>
       <Route path='/library' element={<Library/>}/>
@@ -62,9 +79,9 @@ function App() {
         <Route index element={<EmmaHome/>}/>
         <Route path='/emma/video4' element={<Video4/>}/>
       </Route>
-      <Route path='*' element={<ErrorPage/>}/>
+      <Route path='*' element={<ErrorPage/>}/> */
     </Routes>
-   </Layout>
+    </Layout>
   );
 }
 

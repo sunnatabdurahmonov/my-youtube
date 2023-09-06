@@ -48,6 +48,12 @@
     }
     
 }
+@mixin for-phone-4 {
+    @media screen and (max-width:380px){
+        @content;
+    }
+    
+}
 @mixin for-phone-2 {
     @media screen and (max-width:350px){
         @content;

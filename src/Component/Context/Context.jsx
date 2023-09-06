@@ -21,8 +21,8 @@ export const HeaderContextProvider = ({children}) => {
     const [profile,setProfile] = useState('')
     const [stateId,setStateId] = useState('')
     const [value,setValue] = useState('')
-    // const langLocal = window.localStorage.getItem('theme')
-    const [theme,setTheme] = useState( false)
+    const [theme,setTheme] = useState(false)
+    const [user, setUser] = useState(null)
 
 
     const myfunction = async () => {
@@ -48,6 +48,7 @@ export const HeaderContextProvider = ({children}) => {
              const cardMap = response.data.data.map((info) => (
              <SwiperSlide>
                    <Card
+                key={info.videoId}
                 cardImg={info.thumbnail[0].url}
                 cardTitle={info.title}
                 cardText={info.videoInfo}
@@ -88,6 +89,7 @@ export const HeaderContextProvider = ({children}) => {
                  const cardMap2 = response.data.data.map((info) => (
                  <SwiperSlide>
                     <Card2
+                    key={info.videoId}
                     cardImg2={info.thumbnail[0].url}
                     cardTitle2={info.title}
                     cardText3={info.videoInfo}
@@ -123,6 +125,7 @@ export const HeaderContextProvider = ({children}) => {
                      const cardMap3 = response.data.data.map((info) => (
                      <SwiperSlide>
                         <Card3
+                        key={info.videoId}
                         cardImg3={info.thumbnail[2].url}
                         cardTitle3={info.title}
                         cardText5={info.videoInfo}
@@ -159,6 +162,7 @@ export const HeaderContextProvider = ({children}) => {
                   const response = await axios.request(options);
                  const cardMap4 = response.data.data.map((info) => (
                     <ProfileHomeCard
+                    key={info.videoId}
                     img={info.thumbnail[0].url}
                     title={info.title}
                     text={info.videoInfo}
@@ -201,7 +205,10 @@ export const HeaderContextProvider = ({children}) => {
         setTheme,
         myfunction,
         value,
-        setValue
+        setValue,
+        user,
+        setUser
+
     }
 
     return(
